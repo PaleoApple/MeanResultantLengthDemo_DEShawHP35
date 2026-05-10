@@ -7,7 +7,7 @@ coords = np.load("../vamp_projection.npy")     # [frames, ICs]
 fig, axes = plt.subplots(5, 7, figsize=(20, 15), sharex=True, sharey=True)
 axes = axes.flatten()
 
-for i in range(35):
+for i in range(68):
     ax = axes[i]
     # Color the VAMP plot by the R-value of the specific residue
 #    sc = ax.scatter(coords[:, 0], coords[:, 1], c=r_matrix[:, i], 

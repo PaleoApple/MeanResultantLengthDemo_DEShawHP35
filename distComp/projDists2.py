@@ -6,7 +6,20 @@ from scipy.stats import binned_statistic_2d
 coords = np.load("../vamp_projection.npy")
 # Let's use the first distance column as a test (e.g., a core contact)
 distances = np.loadtxt("hp35.mindists")
-target_dist = distances[:, 22] 
+
+correlations = []
+for i in range(52):
+    corr = np.corrcoef(distances[:, i], coords[:, 0])[0, 1]
+    correlations.append((i, abs(corr)))
+
+# Sort by strongest correlation
+sorted_correlations = sorted(correlations, key=lambda x: x[1], reverse=True)
+
+print("Top 'Switch' Contacts:")
+for idx, val in sorted_correlations[:50]:
+    print(f"Contact {idx}: Correlation = {val:.4f}")
+
+target_dist = distances[:, 17] 
 
 # 2. Create the Binned Map
 # This calculates the MEAN distance in every x,y bin of VAMP space
