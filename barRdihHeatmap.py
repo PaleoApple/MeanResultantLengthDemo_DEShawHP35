@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import binned_statistic
 
 def plot_kinetic_heatmap(proj_path, r_feat_path, n_bins=100):
-    # 1. Load your "Psychopathic" features
+    # 1. Load features
     ic1 = np.load(proj_path)[:, 0]
     r_feats = np.load(r_feat_path)
     
