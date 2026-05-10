@@ -6,7 +6,7 @@ from scipy.stats import binned_statistic_2d
 coords = np.load("../vamp_projection.npy")
 # Let's use the first distance column as a test (e.g., a core contact)
 distances = np.loadtxt("hp35.mindists")
-target_dist = distances[:, 3] 
+target_dist = distances[:, 22] 
 
 # 2. Create the Binned Map
 # This calculates the MEAN distance in every x,y bin of VAMP space
